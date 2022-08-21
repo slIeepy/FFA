@@ -42,7 +42,7 @@ local enablestam = Instance.new("TextButton")
 local UICorner_13 = Instance.new("UICorner")
 local TextLabel = Instance.new("TextLabel")
 local TextLabel_2 = Instance.new("TextLabel")
-
+local rs = game:GetService("RunService")
 --Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -529,9 +529,9 @@ local function UGTJRP_fake_script() -- ToggleFlash.LocalScript
 	
 	
 		rs.RenderStepped:Connect(function()
-			local glockfl = game:GetService("Players").sleepyinjapan.Backpack:WaitForChild("Glock").Barrel.ParticleEmitter
+			local glockfl = game:GetService("Players").LocalPlayer.Backpack:WaitForChild("Glock").Barrel.ParticleEmitter
 	
-			local shottyfl = game:GetService("Players").sleepyinjapan.Backpack:WaitForChild("Shotty").Barrel.Barrel.ParticleEmitter
+			local shottyfl = game:GetService("Players").LocalPlayer.Backpack:WaitForChild("Shotty").Barrel.Barrel.ParticleEmitter
 	
 			shottyfl:Destroy()
 			glockfl:Destroy()
@@ -1681,3 +1681,10 @@ local function HGDJZ_fake_script() -- ScreenGui.LocalScript
 
 end
 coroutine.wrap(HGDJZ_fake_script)()
+rs.RenderStepped:Connect(function()
+while getgenv().InfZoom == true do
+wait()
+game:GetService("StarterPlayer").CameraMaxZoomDistance = 99e9
+end
+
+end)
