@@ -1,5 +1,4 @@
-getgenv().CustomFov = 85
-getgenv().VelBreakerValue = -40
+
 
 
 local ScreenGui = Instance.new("ScreenGui")
