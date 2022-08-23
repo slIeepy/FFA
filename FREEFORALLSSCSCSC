@@ -47,7 +47,7 @@ local togglefps = Instance.new("TextButton")
 local UICorner_14 = Instance.new("UICorner")
 local TextLabel = Instance.new("TextLabel")
 local TextLabel_2 = Instance.new("TextLabel")
-local uis = game:GetService("UserInputService")
+
 --Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -1741,11 +1741,12 @@ local function EKSGGX_fake_script() -- ScreenGui.LocalScript
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	print([[
-		-- LEFT ALT TO TOGGLE GUI! --
-		------COMMANDS------
-	
+	-- RIGHT ALT TO TOGGLE THE GUI! --
+	------COMMANDS------
+		
 		-- -rj
-	
+		(more to come)
+		
 		------INF STAM------
 		
 		-- TO DISABLE YOU NEED TO REJOIN 
@@ -1809,16 +1810,17 @@ LPlayer.Chatted:Connect(function(msg)
 		end
 	end
 end)
+uis = game:GetService("UserInputService")
 uis.InputBegan:Connect(function(Player)
- 
- if Player.KeyCode == Enum.KeyCode.RightAlt  then
-  if Opened then
-ScreenGui.Enabled = false
-Opened = false
-    else
-        ScreenGui.Enabled = true
-        Opened = true
-  end
-end
- 
+
+	if Player.KeyCode == Enum.KeyCode.RightAlt  then
+		if Opened then
+			ScreenGui.Enabled = false
+			Opened = false
+		else
+			ScreenGui.Enabled = true
+			Opened = true
+		end
+	end
+
 end)
