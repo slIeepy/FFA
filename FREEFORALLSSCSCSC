@@ -1,6 +1,8 @@
+-- Gui to Lua
+-- Version: 3.2
 
-
-
+-- Instances:
+local Opened = false
 local ScreenGui = Instance.new("ScreenGui")
 local bck = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -40,9 +42,12 @@ local UICorner_12 = Instance.new("UICorner")
 local InfiniteStam = Instance.new("TextLabel")
 local enablestam = Instance.new("TextButton")
 local UICorner_13 = Instance.new("UICorner")
+local fpsbooster = Instance.new("TextLabel")
+local togglefps = Instance.new("TextButton")
+local UICorner_14 = Instance.new("UICorner")
 local TextLabel = Instance.new("TextLabel")
 local TextLabel_2 = Instance.new("TextLabel")
-local rs = game:GetService("RunService")
+local uis = game:GetService("UserInputService")
 --Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -54,7 +59,7 @@ bck.Parent = ScreenGui
 bck.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
 bck.BorderSizePixel = 0
 bck.Position = UDim2.new(0.300673157, 0, 0.422276616, 0)
-bck.Size = UDim2.new(0, 506, 0, 307)
+bck.Size = UDim2.new(0, 598, 0, 307)
 
 UICorner.Parent = bck
 
@@ -62,8 +67,8 @@ grdnt.Name = "grdnt"
 grdnt.Parent = bck
 grdnt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 grdnt.BorderSizePixel = 0
-grdnt.Position = UDim2.new(0.0148942657, 0, 0.0284428783, 0)
-grdnt.Size = UDim2.new(0, 489, 0, 289)
+grdnt.Position = UDim2.new(0.0129951807, 0, 0.0317002088, 0)
+grdnt.Size = UDim2.new(0, 581, 0, 289)
 
 UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(29, 29, 29)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 41, 73)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(29, 29, 29))}
 UIGradient.Parent = grdnt
@@ -74,8 +79,8 @@ mnfrme.Name = "mnfrme"
 mnfrme.Parent = bck
 mnfrme.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
 mnfrme.BorderSizePixel = 0
-mnfrme.Position = UDim2.new(0.0179361347, 0, 0.0410312302, 0)
-mnfrme.Size = UDim2.new(0, 484, 0, 280)
+mnfrme.Position = UDim2.new(0.0248521268, 0, 0.0442885607, 0)
+mnfrme.Size = UDim2.new(0, 567, 0, 280)
 
 UICorner_3.Parent = mnfrme
 
@@ -105,8 +110,8 @@ Pattern.Name = "Pattern"
 Pattern.Parent = mnfrme
 Pattern.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Pattern.BackgroundTransparency = 1.000
-Pattern.Position = UDim2.new(0.0165289249, 0, 0.0250000004, 0)
-Pattern.Size = UDim2.new(0, 476, 0, 273)
+Pattern.Position = UDim2.new(0.0165288914, 0, 0.0250000004, 0)
+Pattern.Size = UDim2.new(0, 526, 0, 273)
 Pattern.ZIndex = 0
 Pattern.Image = "rbxassetid://300134974"
 Pattern.ImageTransparency = 0.800
@@ -122,7 +127,7 @@ ResetKey.Parent = mnfrme
 ResetKey.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
 ResetKey.BorderColor3 = Color3.fromRGB(255, 41, 73)
 ResetKey.Position = UDim2.new(0.0639663637, 0, 0.409665138, 0)
-ResetKey.Size = UDim2.new(0, 50, 0, 50)
+ResetKey.Size = UDim2.new(0, 49, 0, 50)
 ResetKey.Font = Enum.Font.SourceSansLight
 ResetKey.PlaceholderColor3 = Color3.fromRGB(255, 41, 73)
 ResetKey.PlaceholderText = "Key"
@@ -136,7 +141,7 @@ SetKey.Name = "SetKey"
 SetKey.Parent = ResetKey
 SetKey.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
 SetKey.Position = UDim2.new(1.47087717, 0, 0.00470588356, 0)
-SetKey.Size = UDim2.new(0, 50, 0, 50)
+SetKey.Size = UDim2.new(0, 49, 0, 50)
 SetKey.AutoButtonColor = false
 SetKey.Font = Enum.Font.SourceSansLight
 SetKey.Text = "Set"
@@ -217,7 +222,7 @@ NoFlash.Name = "NoFlash"
 NoFlash.Parent = mnfrme
 NoFlash.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 NoFlash.BackgroundTransparency = 1.000
-NoFlash.Position = UDim2.new(0.396694243, 0, 0.107142866, 0)
+NoFlash.Position = UDim2.new(0.348096102, 0, 0.107142866, 0)
 NoFlash.Size = UDim2.new(0, 108, 0, 40)
 NoFlash.ZIndex = 2
 NoFlash.Font = Enum.Font.SourceSansLight
@@ -246,7 +251,7 @@ VelBreaker.Name = "VelBreaker"
 VelBreaker.Parent = mnfrme
 VelBreaker.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 VelBreaker.BackgroundTransparency = 1.000
-VelBreaker.Position = UDim2.new(0.400826454, 0, 0.278571427, 0)
+VelBreaker.Position = UDim2.new(0.324009627, 0, 0.278571427, 0)
 VelBreaker.Size = UDim2.new(0, 116, 0, 36)
 VelBreaker.ZIndex = 2
 VelBreaker.Font = Enum.Font.SourceSansLight
@@ -281,7 +286,7 @@ Godmode.Name = "Godmode"
 Godmode.Parent = mnfrme
 Godmode.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Godmode.BackgroundTransparency = 1.000
-Godmode.Position = UDim2.new(0.409090906, 0, 0.474999994, 0)
+Godmode.Position = UDim2.new(0.360492766, 0, 0.474999994, 0)
 Godmode.Size = UDim2.new(0, 108, 0, 40)
 Godmode.ZIndex = 2
 Godmode.Font = Enum.Font.SourceSansLight
@@ -310,7 +315,7 @@ InfiniteStam.Name = "InfiniteStam"
 InfiniteStam.Parent = mnfrme
 InfiniteStam.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 InfiniteStam.BackgroundTransparency = 1.000
-InfiniteStam.Position = UDim2.new(0.409090906, 0, 0.685714304, 0)
+InfiniteStam.Position = UDim2.new(0.360492766, 0, 0.685714304, 0)
 InfiniteStam.Size = UDim2.new(0, 108, 0, 40)
 InfiniteStam.ZIndex = 2
 InfiniteStam.Font = Enum.Font.SourceSansLight
@@ -334,6 +339,35 @@ enablestam.TextWrapped = true
 
 UICorner_13.CornerRadius = UDim.new(0, 50)
 UICorner_13.Parent = enablestam
+
+fpsbooster.Name = "fpsbooster"
+fpsbooster.Parent = mnfrme
+fpsbooster.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+fpsbooster.BackgroundTransparency = 1.000
+fpsbooster.Position = UDim2.new(0.690247774, 0, 0.100000009, 0)
+fpsbooster.Size = UDim2.new(0, 108, 0, 40)
+fpsbooster.ZIndex = 2
+fpsbooster.Font = Enum.Font.SourceSansLight
+fpsbooster.Text = "FPS Booster"
+fpsbooster.TextColor3 = Color3.fromRGB(255, 41, 73)
+fpsbooster.TextScaled = true
+fpsbooster.TextSize = 14.000
+fpsbooster.TextWrapped = true
+
+togglefps.Name = "togglefps"
+togglefps.Parent = fpsbooster
+togglefps.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
+togglefps.Position = UDim2.new(1.07847214, 0, -0.217516348, 0)
+togglefps.Size = UDim2.new(0, 50, 0, 50)
+togglefps.AutoButtonColor = false
+togglefps.Font = Enum.Font.SourceSansLight
+togglefps.Text = "Boost"
+togglefps.TextColor3 = Color3.fromRGB(255, 41, 73)
+togglefps.TextSize = 23.000
+togglefps.TextWrapped = true
+
+UICorner_14.CornerRadius = UDim.new(0, 50)
+UICorner_14.Parent = togglefps
 
 TextLabel.Parent = bck
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -361,7 +395,7 @@ TextLabel_2.TextWrapped = true
 
 -- Scripts:
 
-local function RABHT_fake_script() -- grdnt.LocalScript 
+local function FGUS_fake_script() -- grdnt.LocalScript 
 	local script = Instance.new('LocalScript', grdnt)
 
 	local s = script.Parent.UIGradient
@@ -370,8 +404,8 @@ local function RABHT_fake_script() -- grdnt.LocalScript
 		s.Rotation = s.Rotation+2
 	end
 end
-coroutine.wrap(RABHT_fake_script)()
-local function ILVJ_fake_script() -- Pattern.LocalScript 
+coroutine.wrap(FGUS_fake_script)()
+local function LMSNG_fake_script() -- Pattern.LocalScript 
 	local script = Instance.new('LocalScript', Pattern)
 
 	local s = script.Parent.UIGradient
@@ -380,8 +414,8 @@ local function ILVJ_fake_script() -- Pattern.LocalScript
 		s.Rotation = s.Rotation+2
 	end
 end
-coroutine.wrap(ILVJ_fake_script)()
-local function QTKEYK_fake_script() -- SetKey.LocalScript 
+coroutine.wrap(LMSNG_fake_script)()
+local function FOFZ_fake_script() -- SetKey.LocalScript 
 	local script = Instance.new('LocalScript', SetKey)
 
 	script.Parent.MouseEnter:Connect(function()
@@ -393,8 +427,8 @@ local function QTKEYK_fake_script() -- SetKey.LocalScript
 		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(255, 41, 73)}):Play()
 	end)
 end
-coroutine.wrap(QTKEYK_fake_script)()
-local function MVPV_fake_script() -- SetKey.LocalScript 
+coroutine.wrap(FOFZ_fake_script)()
+local function PCXVR_fake_script() -- SetKey.LocalScript 
 	local script = Instance.new('LocalScript', SetKey)
 
 	local LocalP = game.Players.LocalPlayer
@@ -418,8 +452,8 @@ local function MVPV_fake_script() -- SetKey.LocalScript
 		end)
 	end)
 end
-coroutine.wrap(MVPV_fake_script)()
-local function KZYHNLD_fake_script() -- ResetKey.LocalScript 
+coroutine.wrap(PCXVR_fake_script)()
+local function WPLKH_fake_script() -- ResetKey.LocalScript 
 	local script = Instance.new('LocalScript', ResetKey)
 
 	script.Parent.MouseEnter:Connect(function()
@@ -433,8 +467,8 @@ local function KZYHNLD_fake_script() -- ResetKey.LocalScript
 		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {PlaceholderColor3 = Color3.fromRGB(255, 41, 73)}):Play()
 	end)
 end
-coroutine.wrap(KZYHNLD_fake_script)()
-local function OTLZ_fake_script() -- TextButton.LocalScript 
+coroutine.wrap(WPLKH_fake_script)()
+local function KIORV_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	local debounce = false
@@ -472,8 +506,8 @@ local function OTLZ_fake_script() -- TextButton.LocalScript
 	
 	script.Parent.MouseButton1Click:Connect(toggle)
 end
-coroutine.wrap(OTLZ_fake_script)()
-local function WGWFFU_fake_script() -- SetDay.LocalScript 
+coroutine.wrap(KIORV_fake_script)()
+local function CXRRRT_fake_script() -- SetDay.LocalScript 
 	local script = Instance.new('LocalScript', SetDay)
 
 	script.Parent.MouseEnter:Connect(function()
@@ -485,8 +519,8 @@ local function WGWFFU_fake_script() -- SetDay.LocalScript
 		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(255, 41, 73)}):Play()
 	end)
 end
-coroutine.wrap(WGWFFU_fake_script)()
-local function BWIQFOH_fake_script() -- SetDay.LocalScript 
+coroutine.wrap(CXRRRT_fake_script)()
+local function JCFH_fake_script() -- SetDay.LocalScript 
 	local script = Instance.new('LocalScript', SetDay)
 
 	local LocalP = game.Players.LocalPlayer
@@ -503,8 +537,8 @@ local function BWIQFOH_fake_script() -- SetDay.LocalScript
 			end)
 	end)
 end
-coroutine.wrap(BWIQFOH_fake_script)()
-local function AZTS_fake_script() -- ToggleFlash.LocalScript 
+coroutine.wrap(JCFH_fake_script)()
+local function VLKM_fake_script() -- ToggleFlash.LocalScript 
 	local script = Instance.new('LocalScript', ToggleFlash)
 
 	script.Parent.MouseEnter:Connect(function()
@@ -516,8 +550,8 @@ local function AZTS_fake_script() -- ToggleFlash.LocalScript
 		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(255, 41, 73)}):Play()
 	end)
 end
-coroutine.wrap(AZTS_fake_script)()
-local function UGTJRP_fake_script() -- ToggleFlash.LocalScript 
+coroutine.wrap(VLKM_fake_script)()
+local function VFYJX_fake_script() -- ToggleFlash.LocalScript 
 	local script = Instance.new('LocalScript', ToggleFlash)
 
 	local LocalP = game.Players.LocalPlayer
@@ -529,17 +563,17 @@ local function UGTJRP_fake_script() -- ToggleFlash.LocalScript
 	
 	
 		rs.RenderStepped:Connect(function()
-			local glockfl = game:GetService("Players").LocalPlayer.Backpack:WaitForChild("Glock").Barrel.ParticleEmitter
+			local glockfl = game:GetService("Players").sleepyinjapan.Backpack:WaitForChild("Glock").Barrel.ParticleEmitter
 	
-			local shottyfl = game:GetService("Players").LocalPlayer.Backpack:WaitForChild("Shotty").Barrel.Barrel.ParticleEmitter
+			local shottyfl = game:GetService("Players").sleepyinjapan.Backpack:WaitForChild("Shotty").Barrel.Barrel.ParticleEmitter
 	
 			shottyfl:Destroy()
 			glockfl:Destroy()
 		end)
 	end)
 end
-coroutine.wrap(UGTJRP_fake_script)()
-local function NMJPIH_fake_script() -- VelToggle.LocalScript 
+coroutine.wrap(VFYJX_fake_script)()
+local function YRUSAS_fake_script() -- VelToggle.LocalScript 
 	local script = Instance.new('LocalScript', VelToggle)
 
 	
@@ -593,8 +627,8 @@ local function NMJPIH_fake_script() -- VelToggle.LocalScript
 			end
 		end)
 end
-coroutine.wrap(NMJPIH_fake_script)()
-local function JDYTS_fake_script() -- enablegod.LocalScript 
+coroutine.wrap(YRUSAS_fake_script)()
+local function AXPMOG_fake_script() -- enablegod.LocalScript 
 	local script = Instance.new('LocalScript', enablegod)
 
 	script.Parent.MouseEnter:Connect(function()
@@ -606,8 +640,8 @@ local function JDYTS_fake_script() -- enablegod.LocalScript
 		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(255, 41, 73)}):Play()
 	end)
 end
-coroutine.wrap(JDYTS_fake_script)()
-local function XOEY_fake_script() -- enablegod.LocalScript 
+coroutine.wrap(AXPMOG_fake_script)()
+local function NLRXZC_fake_script() -- enablegod.LocalScript 
 	local script = Instance.new('LocalScript', enablegod)
 
 	local LocalP = game.Players.LocalPlayer
@@ -1556,8 +1590,8 @@ local function XOEY_fake_script() -- enablegod.LocalScript
 		
 	end)
 end
-coroutine.wrap(XOEY_fake_script)()
-local function OCME_fake_script() -- enablestam.LocalScript 
+coroutine.wrap(NLRXZC_fake_script)()
+local function BBEXXV_fake_script() -- enablestam.LocalScript 
 	local script = Instance.new('LocalScript', enablestam)
 
 	script.Parent.MouseEnter:Connect(function()
@@ -1569,8 +1603,8 @@ local function OCME_fake_script() -- enablestam.LocalScript
 		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(255, 41, 73)}):Play()
 	end)
 end
-coroutine.wrap(OCME_fake_script)()
-local function XOAWV_fake_script() -- enablestam.LocalScript 
+coroutine.wrap(BBEXXV_fake_script)()
+local function VAKVCH_fake_script() -- enablestam.LocalScript 
 	local script = Instance.new('LocalScript', enablestam)
 
 	local LocalP = game.Players.LocalPlayer
@@ -1593,8 +1627,72 @@ local function XOAWV_fake_script() -- enablestam.LocalScript
 		
 	end)
 end
-coroutine.wrap(XOAWV_fake_script)()
-local function YKMPFUX_fake_script() -- bck.LocalScript 
+coroutine.wrap(VAKVCH_fake_script)()
+local function UUYUC_fake_script() -- togglefps.LocalScript 
+	local script = Instance.new('LocalScript', togglefps)
+
+	script.Parent.MouseEnter:Connect(function()
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(255, 41, 73)}):Play()
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(37,37,37)}):Play()
+	end)
+	script.Parent.MouseLeave:Connect(function()
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}):Play()
+		game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(255, 41, 73)}):Play()
+	end)
+end
+coroutine.wrap(UUYUC_fake_script)()
+local function GJDNJP_fake_script() -- togglefps.LocalScript 
+	local script = Instance.new('LocalScript', togglefps)
+
+	local LocalP = game.Players.LocalPlayer
+	local Mouse = LocalP:GetMouse()
+	rs = game:GetService("RunService")
+	prev = LocalP.Character:WaitForChild('HumanoidRootPart').CFrame
+	
+	script.Parent.MouseButton1Click:connect(function()
+	
+		local decalsyeeted = true
+		local g = game
+		local w = g.Workspace
+		local l = g.Lighting
+		local t = w.Terrain
+		t.WaterWaveSize = 0
+		t.WaterWaveSpeed = 0
+		t.WaterReflectance = 0
+		t.WaterTransparency = 0
+		l.GlobalShadows = false
+		l.FogEnd = 9e9
+		l.Brightness = 0
+		settings().Rendering.QualityLevel = "Level01"
+		for i, v in pairs(g:GetDescendants()) do
+			if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+				v.Material = "Plastic"
+				v.Reflectance = 0
+			elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+				v.Transparency = 1
+			elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+				v.Lifetime = NumberRange.new(0)
+			elseif v:IsA("Explosion") then
+				v.BlastPressure = 1
+				v.BlastRadius = 1
+			elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") then
+				v.Enabled = false
+			elseif v:IsA("MeshPart") then
+				v.Material = "Plastic"
+				v.Reflectance = 0
+				v.TextureID = 10385902758728957
+			end
+		end
+		for i, e in pairs(l:GetChildren()) do
+			if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+				e.Enabled = false
+			end
+		end
+	
+	end)
+end
+coroutine.wrap(GJDNJP_fake_script)()
+local function QXNGC_fake_script() -- bck.LocalScript 
 	local script = Instance.new('LocalScript', bck)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -1638,53 +1736,52 @@ local function YKMPFUX_fake_script() -- bck.LocalScript
 	end)
 	
 end
-coroutine.wrap(YKMPFUX_fake_script)()
-local function HGDJZ_fake_script() -- ScreenGui.LocalScript 
+coroutine.wrap(QXNGC_fake_script)()
+local function EKSGGX_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	print([[
+		-- LEFT ALT TO TOGGLE GUI! --
+		------COMMANDS------
 	
-	------COMMANDS------
-
-	-- -rj
-	(more to come)
+		-- -rj
 	
-	------INF STAM------
+		------INF STAM------
+		
+		-- TO DISABLE YOU NEED TO REJOIN 
+		
+		------ANTI AIMLOCK------
+		
+		-- FPS UNLOCKER IS RECOMMENDED WITH ANTI-AIMLOCK, IT'LL MAKE HITS LESS COMMON
 	
-	-- TO DISABLE YOU NEED TO REJOIN 
-	
-	------ANTI AIMLOCK------
-	
-	-- FPS UNLOCKER IS RECOMMENDED WITH ANTI-AIMLOCK, IT'LL MAKE HITS LESS COMMON
-
-	---------------------------------------------------------------
-	          _____                            _____          
-	         /\    \                          /\    \         
-	        /::\    \                        /::\    \        
-	       /::::\    \                      /::::\    \       
-	      /::::::\    \                    /::::::\    \      
-	     /:::/\:::\    \                  /:::/\:::\    \     
-	    /:::/__\:::\    \                /:::/  \:::\    \    
-	    \:::\   \:::\    \              /:::/    \:::\    \   
-	  ___\:::\   \:::\    \            /:::/    / \:::\    \  
-	 /\   \:::\   \:::\    \          /:::/    /   \:::\    \ 
-	/::\   \:::\   \:::\____\        /:::/____/     \:::\____\
-	\:::\   \:::\   \::/    /        \:::\    \      \::/    /
-	 \:::\   \:::\   \/____/          \:::\    \      \/____/ 
-	  \:::\   \:::\    \               \:::\    \             
-	   \:::\   \:::\____\               \:::\    \            
-	    \:::\  /:::/    /                \:::\    \           
-	     \:::\/:::/    /                  \:::\    \          
-	      \::::::/    /                    \:::\    \         
-	       \::::/    /                      \:::\____\        
-	        \::/    /                        \::/    /        
-	         \/____/                          \/____/         
-	
-	---------------------------------------------------------------
+		---------------------------------------------------------------
+		          _____                            _____          
+		         /\    \                          /\    \         
+		        /::\    \                        /::\    \        
+		       /::::\    \                      /::::\    \       
+		      /::::::\    \                    /::::::\    \      
+		     /:::/\:::\    \                  /:::/\:::\    \     
+		    /:::/__\:::\    \                /:::/  \:::\    \    
+		    \:::\   \:::\    \              /:::/    \:::\    \   
+		  ___\:::\   \:::\    \            /:::/    / \:::\    \  
+		 /\   \:::\   \:::\    \          /:::/    /   \:::\    \ 
+		/::\   \:::\   \:::\____\        /:::/____/     \:::\____\
+		\:::\   \:::\   \::/    /        \:::\    \      \::/    /
+		 \:::\   \:::\   \/____/          \:::\    \      \/____/ 
+		  \:::\   \:::\    \               \:::\    \             
+		   \:::\   \:::\____\               \:::\    \            
+		    \:::\  /:::/    /                \:::\    \           
+		     \:::\/:::/    /                  \:::\    \          
+		      \::::::/    /                    \:::\    \         
+		       \::::/    /                      \:::\____\        
+		        \::/    /                        \::/    /        
+		         \/____/                          \/____/         
+		
+		---------------------------------------------------------------
 	]])
-
+	
 end
-coroutine.wrap(HGDJZ_fake_script)()
+coroutine.wrap(EKSGGX_fake_script)()
 
 local prefix = "-"
 local LPlayer = game.Players.LocalPlayer
@@ -1701,15 +1798,27 @@ LPlayer.Chatted:Connect(function(msg)
 		else
 			cmd = string.sub(msg,2)
 		end
-		
-		
-	
-	
-if cmd == "rj" then
-local ts = game:GetService("TeleportService")
-local p = game:GetService("Players").LocalPlayer
-ts:Teleport(game.PlaceId, p)
+
+
+
+
+		if cmd == "rj" then
+			local ts = game:GetService("TeleportService")
+			local p = game:GetService("Players").LocalPlayer
+			ts:Teleport(game.PlaceId, p)
 		end
 	end
 end)
-
+uis.InputBegan:Connect(function(Player)
+ 
+ if Player.KeyCode == Enum.KeyCode.LeftAlt then
+  if Opened then
+ScreenGui.Enabled = false
+Opened = false
+    else
+        ScreenGui.Enabled = true
+        Opened = true
+  end
+end
+ 
+end)
