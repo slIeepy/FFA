@@ -462,7 +462,7 @@ local function OTLZ_fake_script() -- TextButton.LocalScript
 			button:TweenPosition(UDim2.new(0.681, 0,0.111, 0), "Out", "Sine", 0.2, true)
 			game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}):Play()
 			game:GetService("TweenService"):Create(bg, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(255, 41, 73)}):Play()
-			game:GetService("TweenService"):Create(cam, TweenInfo.new(0.3), {FieldOfView = getgenv().CustomFov}):Play()
+			game:GetService("TweenService"):Create(cam, TweenInfo.new(0.3), {FieldOfView = 85}):Play()
 			pcall(function()
 	
 			end)
@@ -552,7 +552,7 @@ local function NMJPIH_fake_script() -- VelToggle.LocalScript
 	local Toggled = true
 	local KeyCode = 'x'
 	local hip = 0.7
-	local val = getgenv().VelBreakerValue
+	local val = -50
 	
 	local mt = getrawmetatable(game)
 	local oldindex = mt.index
@@ -1681,10 +1681,3 @@ local function HGDJZ_fake_script() -- ScreenGui.LocalScript
 
 end
 coroutine.wrap(HGDJZ_fake_script)()
-rs.RenderStepped:Connect(function()
-while getgenv().InfZoom == true do
-wait()
-game:GetService("StarterPlayer").CameraMaxZoomDistance = 99e9
-end
-
-end)
