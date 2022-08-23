@@ -1699,9 +1699,7 @@ LPlayer.Chatted:Connect(function(msg)
 		end
 		
 		
-		if cmd == "resethip" then
-			game.Players.LocalPlayer.Character.Humanoid.HipHeight = 0
-		end
+	
 	
 if cmd == "rj" then
 local ts = game:GetService("TeleportService")
