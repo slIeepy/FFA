@@ -1644,7 +1644,11 @@ local function HGDJZ_fake_script() -- ScreenGui.LocalScript
 
 	print([[
 	
+	------COMMANDS------
 
+	-- -rj
+	(more to come)
+	
 	------INF STAM------
 	
 	-- TO DISABLE YOU NEED TO REJOIN 
