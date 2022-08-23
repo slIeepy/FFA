@@ -1811,7 +1811,7 @@ LPlayer.Chatted:Connect(function(msg)
 end)
 uis.InputBegan:Connect(function(Player)
  
- if Player.KeyCode == Enum.KeyCode.LeftAlt or Enum.KeyCode.RightAlt  then
+ if Player.KeyCode == Enum.KeyCode.RightAlt  then
   if Opened then
 ScreenGui.Enabled = false
 Opened = false
