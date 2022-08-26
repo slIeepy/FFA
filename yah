@@ -1,9 +1,15 @@
-local name = game:GetService("Players").LocalPlayer.Name
-local lp = game:GetService("Players").LocalPlayer
+local uid = {
+"slIeepy",
+"zeroIogy",
+"coryisamazinglol",
+"xohalz",
+"CheckingExplore",
+"Extxs"
+}
 
-if name == "zeroIogy" or "xohalz" or "coryisamazinglol" or "CheckingExplore" or "Extxs" then
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/slIeepy/FFA/main/FREEFORALLSSCSCSC'),true))()
-return
-else
-lp:Kick("fuh outta here")
-end
+if not table.find(uid, game.Players.LocalPlayer.Name) then
+    game.Players.LocalPlayer:Kick("gtfo nigga")
+elseif table.find(uid, game.Players.LocalPlayer.Name) then
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/slIeepy/FFA/main/FREEFORALLSSCSCSC'),true))()
+        
+    end
