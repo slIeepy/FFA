@@ -586,7 +586,7 @@ local function YRUSAS_fake_script() -- VelToggle.LocalScript
 	local Toggled = true
 	local KeyCode = 'x'
 	local hip = 0.7
-	local val = -65
+	local val = -85
 	
 	local mt = getrawmetatable(game)
 	local oldindex = mt.index
