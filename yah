@@ -4,7 +4,8 @@ local uid = {
 "coryisamazinglol",
 "xohalz",
 "CheckingExplore",
-"Extxs"
+"Extxs",
+"bimrn"
 }
 
 if not table.find(uid, game.Players.LocalPlayer.Name) then
