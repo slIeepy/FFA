@@ -11,6 +11,11 @@ local uid = {
 if not table.find(uid, game.Players.LocalPlayer.Name) then
     game.Players.LocalPlayer:Kick("gtfo nigga")
 elseif table.find(uid, game.Players.LocalPlayer.Name) then
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/slIeepy/FFA/main/FREEFORALLSSCSCSC'),true))()
-        
+    if game.PlaceId == 455366377 then
+        print('reg')
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/slIeepy/FFA/main/FFAREGSCSCSCSC'),true))()
+else
+    print('pris')
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/slIeepy/FFA/main/FREEFORALLSSCSCSC'),true))()      
+    end
     end
